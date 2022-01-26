@@ -26,7 +26,7 @@
 #include <tegra210-soc/tegra210-thermal-Tboard-Tdiode.dtsi>
 #include "porg-platforms/tegra210-porg-power-tree-p3448-0000-a00.dtsi"
 #include "porg-platforms/tegra210-pinmux-drive-sdmmc-common.dtsi"
-#include "porg-platforms/tegra210-porg-pwm-fan.dtsi"
+//#include "porg-platforms/tegra210-porg-pwm-fan.dtsi"
 #include "porg-platforms/tegra210-porg-camera.dtsi"
 //#include "porg-platforms/tegra210-porg-camera-rbpcv2-imx219.dtsi"
 //#include "porg-platforms/tegra210-porg-camera-rbpcv2-dual-imx219.dtsi"
