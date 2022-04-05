@@ -23,7 +23,7 @@
 #include "porg-platforms/tegra210-porg-gpio-p3448-0000-b00.dtsi"
 
 / {
-	model = "ai-blox, MODULE-X Jetson Nano, Headless";
+	model = "ai-blox, BLOX Jetson Nano, Touchscreen ";
 	compatible = "nvidia,p3449-0000-b00+p3448-0002-b00", "nvidia,jetson-nano", "nvidia,tegra210";
 	nvidia,dtsfilename = __FILE__;
 
@@ -37,6 +37,20 @@
 
 	spi@70410000 { /* QSPI */
 		status = "disabled";
+	};
+
+	i2c@7000c000 {
+		polytouch: edt-ft5x06@38 {
+			compatible = "edt,edt-ft5406", "edt,edt-ft5x06";
+			reg = <0x38>;
+			//pinctrl-names = "default";
+			//pinctrl-0 = <&pinctrl_edt_ft5x06>;
+			interrupt-parent = <&gpio>;
+			interrupts = <TEGRA_GPIO(E, 7) 0x01>;
+			touchscreen-size-x = <800>;
+			touchscreen-size-y = <480>;
+			status = "okay";
+		};
 	};
 
 	gpio@6000d000 {
