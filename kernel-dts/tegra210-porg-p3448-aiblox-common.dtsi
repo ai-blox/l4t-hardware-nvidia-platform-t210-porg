@@ -32,7 +32,6 @@
 //#include "porg-platforms/tegra210-porg-camera-rbpcv2-dual-imx219.dtsi"
 #include "porg-platforms/tegra210-porg-camera-rbpcv2-tripple-imx219.dtsi"
 #include <t210-common-platforms/tegra210-ers-hdmi-e2190-1100-a00.dtsi>
-#include <t210-common-platforms/tegra210-dp.dtsi>
 #include "porg-platforms/tegra210-porg-thermal.dtsi"
 #include "porg-platforms/tegra210-porg-thermal-fan-est.dtsi"
 #include "porg-platforms/tegra210-porg-keys-p3448-0000-a00.dtsi"
@@ -44,15 +43,14 @@
 //#include "porg-plugin-manager/tegra210-porg-plugin-manager.dtsi"
 #include <tegra210-soc/mods-simple-bus.dtsi>
 #include "porg-platforms/tegra210-porg-extcon-p3448-0000-a00.dtsi"
-#include "porg-platforms/tegra210-porg-p3448-emc-a00.dtsi"
 #include "porg-platforms/tegra210-porg-pcie.dtsi"
 #include "porg-platforms/tegra210-porg-prods.dtsi"
 #include "porg-platforms/tegra210-porg-super-module-e2614.dtsi"
 
 / {
-        nvidia,boardids = "3448";
-        nvidia,proc-boardid = "3448";
-        nvidia,pmu-boardid = "3448";
+    nvidia,boardids = "3448";
+    nvidia,proc-boardid = "3448";
+    nvidia,pmu-boardid = "3448";
 	nvidia,fastboot-usb-pid = <0xb442>;
 
 	chosen {
@@ -129,6 +127,7 @@
 			nvidia,dc-connector = <&sor1>;
 			win-mask = <0x7>; /* Assign only wins A/B/C */
 		};
+		/* tegradc.1 */
 		dc@54240000 {
 			status = "okay";
 			nvidia,dc-flags = <TEGRA_DC_FLAG_ENABLED>;
@@ -141,12 +140,16 @@
 			win-mask = <0x7>; /* Assign only wins A/B/C */
 		};
 		sor {
-			status = "okay";
-			nvidia,xbar-ctrl = <2 1 0 3 4>;
-			dp-display {
-				status = "okay";
+			status = "disabled";
+			nvidia,active-panel = <&sor0_hdmi_display>;
+			nvidia,xbar-ctrl = <0 1 2 3 4>;
+			hdmi-display {
+				status = "disabled";
+				disp-default-out {
+				};
 			};
 		};
+
 		sor1 {
 			nvidia,xbar-ctrl = <2 1 0 3 4>;
 			status = "okay";
@@ -155,7 +158,7 @@
 			};
 		};
 		dpaux {
-			status = "okay";
+			status = "disabled";
 		};
 		dpaux1 {
 			status = "okay";
@@ -286,14 +289,14 @@
 	};
 
 	sdhci@700b0400 {
-		status = "disabled";
-		/delete-property/ keep-power-in-suspend;
-		/delete-property/ non-removable;
-		mmc-ddr-1_8v;
-		mmc-ocr-mask = <3>;
-		uhs-mask = <0x0>;
-		max-clk-limit = <400000>;
-		tap-delay = <3>;
+		mmc-ocr-mask = <0>;
+		cd-inverted;
+		cd-gpios = <&gpio TEGRA_GPIO(Y, 2) 0>;
+		nvidia,cd-wakeup-capable;
+		nvidia,update-pinctrl-settings;
+		#vqmmc-supply = <&max77620_ldo6>; /* SDMMC3 for 2nd Wifi on loki */
+  		vmmc-supply = <&p3449_vdd_sdmmc3_sw>; /* SDMMC3 no stuff for full size SD on foster */
+		status = "okay";
 	};
 
 	sdhci@700b0200 { /* SDMMC2 for Wifi */
@@ -478,6 +481,21 @@
 	extcon {
 		extcon@0 {
 			status = "disabled";
+		};
+
+		vbus_id_gpio_extcon: extcon@1 {
+			status = "okay";
+			compatible = "extcon-gpio-states";
+			reg = <0x1>;
+			extcon-gpio,name = "VBUS";
+			extcon-gpio,cable-states = <
+						0x0 0x1
+						0x1 0x0>;
+			gpios = <&gpio TEGRA_GPIO(CC, 4) 0>;
+			extcon-gpio,out-cable-names = <EXTCON_USB EXTCON_USB_HOST EXTCON_NONE>;
+			wakeup-source;
+			#extcon-cells = <1>;
+
 		};
 	};
 

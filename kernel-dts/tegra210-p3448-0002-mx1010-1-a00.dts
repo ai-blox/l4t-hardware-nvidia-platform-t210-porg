@@ -39,21 +39,7 @@
 	spi@70410000 { /* QSPI */
 		status = "disabled";
 	};
-
-	i2c@7000c000 {
-		polytouch: edt-ft5x06@38 {
-			compatible = "edt,edt-ft5406", "edt,edt-ft5x06";
-			reg = <0x38>;
-			//pinctrl-names = "default";
-			//pinctrl-0 = <&pinctrl_edt_ft5x06>;
-			interrupt-parent = <&gpio>;
-			interrupts = <TEGRA_GPIO(E, 7) 0x01>;
-			touchscreen-size-x = <800>;
-			touchscreen-size-y = <480>;
-			status = "okay";
-		};
-	};
-
+	
 	gpio@6000d000 {
 		/* gpio-name for 40-pin header, gpio-name given as COL(10) x ROW(20) */
 		gpio-line-names = "",   "",     "",     "",     "",     "",     "",     "",     "",     "",
