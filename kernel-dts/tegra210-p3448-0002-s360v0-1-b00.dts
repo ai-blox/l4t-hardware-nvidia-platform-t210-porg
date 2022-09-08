@@ -18,12 +18,12 @@
  *
  */
 
-#include "tegra210-porg-p3448-common.dtsi"
-#include "porg-platforms/tegra210-porg-pinmux-p3448-0002-b00.dtsi"
-#include "porg-platforms/tegra210-porg-gpio-p3448-0002-b00.dtsi"
+#include "tegra210-porg-p3448-aiblox-common.dtsi"
+#include "porg-platforms/tegra210-porg-pinmux-p3448-0002-aibp0011pa-b00.dtsi"
+#include "porg-platforms/tegra210-porg-gpio-p3448-0002-aibp0011pa-b00.dtsi"
 
 / {
-	model = "NVIDIA Jetson Nano Developer Kit";
+	model = "Secury 360 V0.1";
 	compatible = "nvidia,jetson-nano", "nvidia,tegra210";
 	nvidia,dtsfilename = __FILE__;
 
