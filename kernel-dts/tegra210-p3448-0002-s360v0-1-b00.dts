@@ -34,7 +34,7 @@
 	sdhci@700b0000 { /* SDMMC1 for SD card */
 		status = "disabled";
 	};
-
+	
 	spi@70410000 { /* QSPI */
 		status = "disabled";
 	};

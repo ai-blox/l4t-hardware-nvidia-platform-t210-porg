@@ -765,35 +765,6 @@
 		#cooling-cells = <2>; /* min followed by max */
 	};
 
-	i2c0: i2c@7000c000 {
-		status = "okay";
-		pca9539: gpio@74 {
-			compatible = "nxp,pca9539";
-			reg = <0x74>;
-			gpio-controller;
-			#gpio-cells = <2>;
-			vcc-supply = <&battery_reg>;
-			digital-outputs {
-				gpio-hog;
-				gpios = <0 0 1 0 2 0 3 0 4 0 5 0 6 0>;
-				output-low;
-				label = "do1", "do2", "do3", "do4", "do5", "do6";
-			};
-			digital-input {
-				gpio-hog;
-				gpios = <7 0 10 0 11 0 12 0 13 0 14 0>;
-				input;
-				label = "di1", "di2", "di3", "di4", "di5", "di6";
-			};
-			leds {
-				gpio-hog;
-				gpios = <15 0 16 0>;
-				output-low;
-				label = "green", "red";
-			};
-		};
-	};
-
 	hdr40_i2c1: i2c@7000c400 { };
 
 	clock@70110000 {
