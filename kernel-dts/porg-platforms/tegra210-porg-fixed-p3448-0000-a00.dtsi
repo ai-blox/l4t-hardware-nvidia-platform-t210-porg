@@ -139,7 +139,7 @@
 			regulator-name = "vdd-sdmmc3-sw";
 			regulator-min-microvolt = <3300000>;
 			regulator-max-microvolt = <3300000>;
-			gpio = <&gpio TEGRA_GPIO(Z, 0) 0>;
+			gpio = <&gpio TEGRA_GPIO(V, 1) 0>;
 			enable-active-high;
 			regulator-boot-on;
 			vin-supply = <&p3448_vdd_3v3_sys>;
