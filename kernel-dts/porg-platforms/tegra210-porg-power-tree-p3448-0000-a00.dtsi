@@ -296,10 +296,6 @@
 		vmmc-supply = <&p3448_vdd_3v3_sys>;
 	};
 
-	sdhci@700b0400 {
-		vqmmc-supply = <&max77620_sd3>; /* SDMMC3 for 2nd Wifi on loki */
-		vmmc-supply = <&p3448_vdd_3v3_sys>; /* SDMMC3 no stuff for full size SD on foster */
-	};
 
 	sdhci@700b0200 {
 		vqmmc-supply = <&max77620_sd3>; /* SDMMC2 for Wifi on loki */

@@ -292,7 +292,7 @@
 		cd-gpios = <&gpio TEGRA_GPIO(Z, 0) 0>;
 		nvidia,cd-wakeup-capable;
 		nvidia,update-pinctrl-settings;
-		#vqmmc-supply = <&max77620_ldo6>;
+		vqmmc-supply = <&max77620_ldo6>;
 		vmmc-supply = <&p3449_vdd_sdmmc3_sw>;
 		status = "okay";
 	};
@@ -321,7 +321,7 @@
 		no-sdio;
 		no-mmc;
 		disable-wp;
-		status = "okay";
+		status = "disabled";
 	};
 
 	aconnect@702c0000 {
