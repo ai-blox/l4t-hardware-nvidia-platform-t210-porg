@@ -19,8 +19,8 @@
  */
 
 #include "tegra210-porg-p3448-abd-common.dtsi"
-#include "porg-platforms/tegra210-porg-pinmux-aibp0003pb.dtsi"
-#include "porg-platforms/tegra210-porg-gpio-aibp0003pb.dtsi"
+#include "porg-platforms/tegra210-porg-pinmux-aibp0021pb.dtsi"
+#include "porg-platforms/tegra210-porg-gpio-aibp0021pb.dtsi"
 #include "porg-platforms/tegra210-porg-p3448-emc-a00.dtsi"
 
 / {

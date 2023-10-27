@@ -782,13 +782,116 @@
 		#cooling-cells = <2>; /* min followed by max */
 	};
 
-	hdr40_i2c0: i2c@7000c000 {
-		tegra_nct72: temp-sensor@4c {
-			status = "disabled";
+	ext_i2c1: i2c@7000c400 {
+		gpio_exp: pca953x@74 {
+			compatible = "nxp,pca9539";
+			reg = <0x74>;
+			gpio-controller;
+			#gpio-cells = <2>;
+//			interrupt-controller;
+//			interrupt-parent = <&gpio>;
+//			interrupts = <TEGRA_GPIO(H, 6) 0x0>;
+			vcc-supply = <&p3448_vdd_3v3_sys>;
+
+			DI1 {
+				gpio-hog;
+				gpios = <0 0>;
+				input;
+				line-name = "DI1";
+			};
+			DI2 {
+				gpio-hog;
+				gpios = <1 0>;
+				input;
+				line-name = "DI2";
+			};
+			DI3 {
+				gpio-hog;
+				gpios = <2 0>;
+				input;
+				line-name = "DI3";
+			};
+			DI4 {
+				gpio-hog;
+				gpios = <3 0>;
+				input;
+				line-name = "DI4";
+			};
+			DO1 {
+				gpio-hog;
+				gpios = <4 0>;
+				output-low;
+				line-name = "DO1";
+			};
+			DO2 {
+				gpio-hog;
+				gpios = <5 0>;
+				output-low;
+				line-name = "DO5";
+			};
+			DO3 {
+				gpio-hog;
+				gpios = <6 0>;
+				output-low;
+				line-name = "DO3";
+			};
+			DO4 {
+				gpio-hog;
+				gpios = <7 0>;
+				output-low;
+				line-name = "DO4";
+			};
+			SW_PME {
+				gpio-hog;
+				gpios = <8 0>;
+				input;
+				line-name = "SW_PME";
+			};
+			SW_INT {
+				gpio-hog;
+				gpios = <9 0>;
+				input;
+				line-name = "SW_INT";
+			};
+			3V8_EN {
+				gpio-hog;
+				gpios = <10 0>;
+				output-high;
+				line-name = "3V8_EN";
+			};
+			24V_EN {
+				gpio-hog;
+				gpios = <11 0>;
+				output-low;
+				line-name = "24V_EN";
+			};
+			3V3_SYS_PG {
+				gpio-hog;
+				gpios = <12 0>;
+				input;
+				line-name = "3V3_SYS_PG";
+			};
+			5V_SYS_PG {
+				gpio-hog;
+				gpios = <13 0>;
+				input;
+				line-name = "5V_SYS_PG";
+			};
+			3V8_PG {
+				gpio-hog;
+				gpios = <14 0>;
+				input;
+				line-name = "3V8_PG";
+			};
+
+			24V_PG {
+				gpio-hog;
+				gpios = <15 0>;
+				input;
+				line-name = "24V_PG";
+			};
 		};
 	};
-
-	hdr40_i2c1: i2c@7000c400 { };
 
 	clock@70110000 {
 		status = "okay";
