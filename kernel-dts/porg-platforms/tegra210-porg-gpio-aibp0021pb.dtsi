@@ -33,6 +33,7 @@
 				TEGRA_GPIO(X, 6)
 				TEGRA_GPIO(Y, 1)
 				TEGRA_GPIO(Z, 2)
+				TEGRA_GPIO(Z, 0)
 				TEGRA_GPIO(H, 2)
 				TEGRA_GPIO(H, 5)
 				TEGRA_GPIO(H, 6)
@@ -50,7 +51,6 @@
 				TEGRA_GPIO(H, 7)
 				TEGRA_GPIO(I, 0)
 				TEGRA_GPIO(V, 0)
-				TEGRA_GPIO(Z, 0)
 				TEGRA_GPIO(I, 1)
 				TEGRA_GPIO(V, 1)
 				>;
