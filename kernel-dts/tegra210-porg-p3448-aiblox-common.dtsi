@@ -295,7 +295,7 @@
 		nvidia,cd-wakeup-capable;
 		nvidia,update-pinctrl-settings;
 		#vqmmc-supply = <&max77620_ldo6>; /* SDMMC3 for 2nd Wifi on loki */
-  		vmmc-supply = <&p3449_vdd_sdmmc3_sw>; /* SDMMC3 no stuff for full size SD on foster */
+  		vmmc-supply = <&p3448_vdd_3v3_sd>; /* SDMMC3 no stuff for full size SD on foster */
 		status = "okay";
 	};
 

@@ -21,7 +21,7 @@
 
 / {
 	pinmux: pinmux@700008d4 {
-		ai-blox,name = "aibp0003pb";
+		ai-blox,name = "aibp0021pb";
 		status = "okay";
 		pinctrl-names = "default", "drive", "unused";
 		pinctrl-0 = <&pinmux_default>;
@@ -324,7 +324,7 @@
 			pz0 {
 				nvidia,pins = "pz0";
 				nvidia,function = "rsvd1";
-				nvidia,pull = <TEGRA_PIN_PULL_UP>;
+				nvidia,pull = <TEGRA_PIN_PULL_NONE>;
 				nvidia,tristate = <TEGRA_PIN_DISABLE>;
 				nvidia,enable-input = <TEGRA_PIN_DISABLE>;
 			};
