@@ -39,6 +39,7 @@
 				TEGRA_GPIO(CC, 4)
 				TEGRA_GPIO(Y, 2)
 				TEGRA_GPIO(I, 2)
+				TEGRA_GPIO(E, 6)
 				>;
 			gpio-output-low = <
 				TEGRA_GPIO(S, 7)
