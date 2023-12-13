@@ -27,6 +27,7 @@
 	model = "ai-blox, BLOX ABD Nano";
 	compatible = "nvidia,p3449-0000-b00+p3448-0002-b00", "nvidia,jetson-nano", "nvidia,tegra210";
 	nvidia,dtsfilename = __FILE__;
+	aiblox,hdmi = "0x25";
 
 	sdhci@700b0600 { /* SDMMC4 for EMMC */
 		status = "okay";

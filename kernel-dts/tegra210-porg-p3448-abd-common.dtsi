@@ -341,14 +341,16 @@
 			i2s@702d1200 {
 				regulator-supplies = "vdd-1v8-dmic";
 				vdd-1v8-dmic-supply = <&max77620_sd3>;
-				fsync-width = <15>;
-				status = "okay";
+				fsync-width = <16>;
+				bclk-ratio = <2>;
+				status = "disabled";
 			};
 
 			i2s@702d1300 {
 				regulator-supplies = "vddio-uart";
 				vddio-uart-supply = <&max77620_sd3>;
-				fsync-width = <15>;
+				bclk-ratio = <2>;
+				fsync-width = <16>;
 				status = "okay";
 
 				/*
@@ -422,7 +424,7 @@
 			bitclock-noninversion;
 			frame-noninversion;
 			bit-format = "s16_le";
-			srate = <48000>;
+			srate = <441000>;
 			num-channel = <2>;
 			ignore_suspend;
 			name-prefix = "x";
@@ -440,7 +442,7 @@
 			bitclock-noninversion;
 			frame-noninversion;
 			bit-format = "s16_le";
-			srate = <48000>;
+			srate = <44100>;
 			num-channel = <2>;
 			ignore_suspend;
 			name-prefix = "y";
@@ -454,7 +456,7 @@
 			codec-dai-name = "dit-hifi";
 			format = "i2s";
 			bit-format = "s16_le";
-			srate = <48000>;
+			srate = <44100>;
 			ignore_suspend;
 			num-channel = <2>;
 			name-prefix = "a";
@@ -468,7 +470,7 @@
 			codec-dai-name = "dit-hifi";
 			format = "i2s";
 			bit-format = "s16_le";
-			srate = <48000>;
+			srate = <44100>;
 			ignore_suspend;
 			num-channel = <2>;
 			name-prefix = "b";
