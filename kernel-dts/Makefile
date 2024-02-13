@@ -16,6 +16,7 @@ dtb-$(CONFIG_ARCH_TEGRA_210_SOC) += tegra210-p3448-0000-p3449-0000-a02-hdmi-dsi.
 dtb-$(CONFIG_ARCH_TEGRA_210_SOC) += tegra210-p3448-0002-mx1010-1-a00.dtb
 dtb-$(CONFIG_ARCH_TEGRA_210_SOC) += tegra210-p3448-0002-mx1010-2-a00.dtb
 dtb-$(CONFIG_ARCH_TEGRA_210_SOC) += tegra210-p3448-0002-blox-abd-a00.dtb
+dtb-$(CONFIG_ARCH_TEGRA_210_SOC) += tegra210-p3448-0002-blox-s-a00.dtb
 dtbo-$(CONFIG_ARCH_TEGRA_210_SOC) += tegra210-p3448-0000-p3449-0000-a01-adafruit-sph0645lm4h.dtbo
 dtbo-$(CONFIG_ARCH_TEGRA_210_SOC) += tegra210-p3448-0000-p3449-0000-a02-adafruit-sph0645lm4h.dtbo
 dtbo-$(CONFIG_ARCH_TEGRA_210_SOC) += tegra210-p3448-0000-p3449-0000-a01-adafruit-uda1334a.dtbo
