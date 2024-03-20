@@ -62,5 +62,25 @@
 				TEGRA_GPIO(S, 5)
 				>;
 		};
+
+		wlan_en: gpio_wlan_en {
+			status = "okay";
+			gpio-hog;
+			output-high;
+			gpios = <
+				TEGRA_GPIO(H, 7) GPIO_ACTIVE_HIGH
+				>;
+			line-name = "WLAN_EN";
+		};
+
+		bt_en: gpio_bt_en {
+			status = "okay";
+			gpio-hog;
+			output-high;
+			gpios = <
+				TEGRA_GPIO(I, 1) GPIO_ACTIVE_HIGH
+				>;
+			line-name = "BT_EN";
+		};
 	};
 };
