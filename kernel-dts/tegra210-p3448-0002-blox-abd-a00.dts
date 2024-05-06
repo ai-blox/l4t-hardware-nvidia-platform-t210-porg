@@ -76,4 +76,69 @@
 		gpios = <&gpio TEGRA_GPIO(H, 7) GPIO_ACTIVE_HIGH>, /* WLAN */
 				<&gpio TEGRA_GPIO(I, 1) GPIO_ACTIVE_HIGH>; /* BT */
 	};
+
+	macb0: ethernet@f0028000 {
+		phy-mode = "rgmii-txid";
+		#address-cells = <1>;
+		#size-cells = <0>;
+		status = "okay";
+
+		fixed-link {
+			speed = <1000>;
+			full-duplex;
+		};
+	};
+};
+
+&i2c1 {
+	i2c_ksz8567: ksz8567@5f {
+		compatible = "microchip,ksz9897";
+		reg = <0x5f>;
+		phy-mode = "rgmii-id";
+
+		// interrupt-parent = <&pioB>;
+		interrupts = <28 IRQ_TYPE_LEVEL_LOW>;
+		status = "okay";
+		ports {
+			#address-cells = <1>;
+			#size-cells = <0>;
+			port@0 {
+				reg = <0>;
+				label = "lan1";
+			};
+			port@1 {
+				reg = <1>;
+				label = "lan2";
+			};
+			port@2 {
+				reg = <2>;
+				label = "lan3";
+			};
+			port@3 {
+				reg = <3>;
+				label = "lan4";
+			};
+			port@4 {
+				reg = <4>;
+				label = "lan5";
+			};
+			port@5 {
+				reg = <5>;
+				label = "lan6";
+				fixed-link {
+					speed = <1000>;
+					full-duplex;
+				};
+			};
+			port@6 {
+				reg = <6>;
+				label = "cpu";
+				ethernet = <&macb0>;
+				fixed-link {
+					speed = <1000>;
+					full-duplex;
+				};
+			};
+		};
+	};
 };
