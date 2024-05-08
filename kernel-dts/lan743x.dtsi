@@ -1,0 +1,17 @@
+
+/ {
+                        pcie@1003000 {
+				pci@1,0 { 
+                                	ethernet@0,0 {
+						compatible = "pci1055,7430";
+						reg = <0x000000 0 0 0 0>; 
+						nvidia,num-lanes = <1>;
+                                        	label = "lan743x";
+						nvmem-cells = <&mac_address>;
+                                                nvmem-cell-names = "mac-address";
+
+                                	};
+				};
+                        };
+};
+

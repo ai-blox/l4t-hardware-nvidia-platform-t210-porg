@@ -1,0 +1,26 @@
+
+
+// SPDX-License-Identifier: GPL-2.0
+#include <dt-bindings/input/input.h>
+#include <dt-bindings/pinctrl/pinctrl-tegra.h>
+#include <dt-bindings/gpio/gpio.h>
+#include <dt-bindings/pwm/pwm.h>
+#include <dt-bindings/i2c/i2c.h>
+#include <dt-bindings/phy/phy.h>
+#include <dt-bindings/gpio/tegra-gpio.h>
+//change reg 0x15 to the correct offset
+/ {
+			i2c@7000c500 {
+				eeprom@50 {
+					#address-cells = <1>;
+					#size-cells = <0>;
+					compatible = "atmel,24c02";
+					reg = <0x50>;
+					label = "module";
+					mac_address: mac@a6 { 
+						reg = <0xa6 6>;
+					};
+
+				};
+			};
+};
