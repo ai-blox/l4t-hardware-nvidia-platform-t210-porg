@@ -96,8 +96,8 @@
 		reg = <0x5f>;
 		phy-mode = "rgmii-id";
 
-		// interrupt-parent = <&pioB>;
-		interrupts = <28 IRQ_TYPE_LEVEL_LOW>;
+		interrupt-parent = <&gpio_exp>;
+		interrupts = <9 IRQ_TYPE_EDGE_FALLING>;
 		status = "okay";
 		ports {
 			#address-cells = <1>;
