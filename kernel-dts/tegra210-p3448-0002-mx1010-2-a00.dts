@@ -52,6 +52,13 @@
 			touchscreen-size-y = <480>;
 			status = "okay";
 		};
+    goodix: gt911@5d {
+			compatible = "goodix,gt911";
+			reg = <0x5d>;
+			interrupt-parent = <&gpio>;
+			interrupts = <TEGRA_GPIO(E, 7) 0x01>;
+			status = "okay";
+		};
 	};
 
 	gpio@6000d000 {
